@@ -121,7 +121,12 @@
 .ptop-num{color:var(--accent);font-weight:500}
 .ptop-title{color:#000;font-weight:500;letter-spacing:.04em}
 .ptop-r{display:flex;gap:10px;justify-content:flex-end;letter-spacing:.06em;
-  color:#888;flex-wrap:wrap}
+  color:#888;flex-wrap:wrap;align-items:center}
+
+/* cs-layout: pcard sidebar + scrollable grid */
+.cs-layout{display:grid;grid-template-columns:auto 1fr;min-height:0;overflow:hidden}
+.cs-layout .pcard{border-right:1px solid var(--rule);overflow-y:auto;
+  scroll-snap-align:none}
 
 /* Horizontal rail — fills available height; items are full-height. */
 .prail{overflow-x:auto;overflow-y:hidden;min-height:0}
@@ -137,7 +142,29 @@
   font-weight:500;margin:0;color:var(--ink)}
 .pcard-body{font-size:13.5px;line-height:1.55;color:#1a1a1a;margin:0;
   text-wrap:pretty}
-.pcard-spec{margin:auto 0 0;padding:0;font-size:10.5px;color:#444;
+.pcard-foot{margin-top:auto;display:flex;flex-direction:column;gap:14px}
+
+/* ── Contact-sheet toggle switch ──────────────────────────────────── */
+.cs-toggle{display:inline-flex;gap:9px;align-items:center;background:none;border:none;
+  padding:0;cursor:pointer;font-family:inherit;font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:#444;transition:color .2s}
+.cs-toggle:hover{color:#000}
+
+.cs-track{display:inline-block;width:28px;height:16px;border-radius:8px;
+  background:#ccc;position:relative;flex-shrink:0;transition:background .2s}
+.cs-toggle[aria-pressed="true"] .cs-track{background:var(--accent)}
+.cs-thumb{position:absolute;top:2px;left:2px;width:12px;height:12px;
+  border-radius:50%;background:#fff;transition:transform .2s;
+  box-shadow:0 1px 2px rgba(0,0,0,.22)}
+.cs-toggle[aria-pressed="true"] .cs-thumb{transform:translateX(12px)}
+
+.cs-toggle-sm{font-size:10.5px;color:#888;gap:7px}
+.cs-toggle-sm:hover{color:#000}
+.cs-track-sm{width:22px;height:13px;border-radius:6.5px}
+.cs-track-sm .cs-thumb{width:9px;height:9px;top:2px;left:2px}
+.cs-toggle[aria-pressed="true"] .cs-track-sm .cs-thumb{transform:translateX(9px)}
+
+.pcard-spec{padding:0;font-size:10.5px;color:#444;
   border-top:1px solid var(--rule-soft);display:grid;grid-template-columns:1fr 1fr;
   column-gap:18px;row-gap:0;letter-spacing:.06em}
 .pcard-spec > div{display:flex;justify-content:space-between;gap:10px;
@@ -196,6 +223,38 @@
   height:1px;z-index:2}
 .ppro-tick{position:absolute;width:1px;height:6px;background:rgba(0,0,0,.25);
   top:-3px;transform:translateX(-.5px)}
+
+/* ─── Contact sheet ─────────────────────────────────────────────────── */
+.csheet{min-height:0;overflow-y:auto;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:4px;padding:0 6px;align-content:start}
+
+.csheet-fig{position:relative;aspect-ratio:2/3;overflow:hidden;
+  cursor:pointer;margin:0;background:#e8e8e8}
+.csheet-fig img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:filter .25s ease-out}
+.csheet-fig:hover img{filter:blur(10px)}
+.csheet-num{position:absolute;bottom:6px;left:8px;font-size:10px;
+  color:#fff;letter-spacing:.06em;opacity:0;transition:opacity .2s;
+  mix-blend-mode:difference}
+.csheet-fig:hover .csheet-num{opacity:1}
+
+/* ─── Lightbox ───────────────────────────────────────────────────────── */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:200;
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:18px;cursor:pointer}
+.lb-img{max-width:90vw;max-height:82vh;object-fit:contain;
+  display:block;cursor:default}
+.lb-bar{display:flex;align-items:center;gap:18px;font-size:11px;
+  color:#888;letter-spacing:.06em;cursor:default}
+.lb-nav,.lb-close{background:none;border:none;font:inherit;
+  letter-spacing:inherit;cursor:pointer;padding:4px 8px;
+  transition:color .2s;text-transform:uppercase}
+.lb-nav{color:#888}
+.lb-nav:hover:not(:disabled){color:#fff}
+.lb-nav:disabled{opacity:.2;cursor:default}
+.lb-close{color:var(--accent);margin-left:8px}
+.lb-close:hover{color:#fff}
 
 /* ─── Responsive — collapse home to a vertically scrolling layout ──── */
 @media (max-width:900px){
