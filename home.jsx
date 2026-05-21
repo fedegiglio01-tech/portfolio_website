@@ -39,19 +39,11 @@ function TopBar() {
             </li>
             <li>
               <span className="top-clist-l">IG·</span>
-              <a className="top-clist-v" href="https://instagram.com" target="_blank" rel="noopener">{BIO.instagram}</a>
-            </li>
-            <li>
-              <span className="top-clist-l">TEL</span>
-              <span className="top-clist-v">{BIO.phone}</span>
-            </li>
-            <li>
-              <span className="top-clist-l">STU</span>
-              <span className="top-clist-v">1421 N. Echo Park Ave</span>
+              <a className="top-clist-v" href="https://instagram.com/fede.giglio" target="_blank" rel="noopener">{BIO.instagram}</a>
             </li>
           </ul>
           <div className="top-block-foot mono upper">
-            <span>Repr.</span><b>Open for editorial &<br/>commissioned work</b>
+            <span>Repr.</span><b>Open for test shot<br/>and TFP project</b>
           </div>
         </section>
       </div>
@@ -146,7 +138,7 @@ function BottomBar() {
     <footer className="bot mono upper">
       <div className="bot-l">
         <span className="bot-dot">●</span>
-        <span>Index · 06 projects · 2021—2026</span>
+        <span>Index · 07 projects · 2021—2026</span>
       </div>
       <div className="bot-c">
         <span>Hover to blur · Click to open</span>
