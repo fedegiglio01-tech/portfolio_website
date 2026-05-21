@@ -198,7 +198,7 @@ const PROJECTS = [
     count: 8,
     short: "Eight frames from the margins — large format, available light, loose sequence.",
     long: "A collection made in the margins: large format frames, school submissions and photographs that did not fit elsewhere. The title treats the image like a postcard — sent from an address that no longer exists, to someone who may not be waiting.",
-    cover: "postcard_from_nowhere/FeGiglio_TLE_01.jpg",
+    cover: "postcard_from_nowhere/260329-4x5b.jpg",
     figs: [
       { w:2, h:3, n:"01", src:"postcard_from_nowhere/FeGiglio_TLE_01.jpg" },
       { w:2, h:3, n:"02", src:"postcard_from_nowhere/FeGiglio_TLE_02bw.jpg" },
